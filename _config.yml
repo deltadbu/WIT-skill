@@ -1,3 +1,15 @@
 title: WIT
 description: Writing Is Thinking — A workflow for scientific thinking and writing
 theme: minima
+
+# Presentation only: Markdown remains the source of all article content.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Other bilingual pages are paired automatically by the -cn.md suffix.
+language_pairs:
+  - en: wit/references/WIT-Scientific-thinking-and-writing-skill.md
+    zh: wit/references/WIT-科学思考及写作skill.md

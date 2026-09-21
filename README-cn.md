@@ -70,6 +70,6 @@ English version: [README.md](README.md)。
 WIT 采用**分层授权（split licensing）**：
 
 - 可执行的 Agent Skill 与软件组件——尤其是 [`wit/SKILL.md`](wit/SKILL.md) 以及可执行代码 / scripts——采用 **Apache License 2.0**（`Apache-2.0`）。
-- WIT framework 与供人阅读的内容——包括 README、[`wit/references/`](wit/references/)、[`wit/tests/`](wit/tests/) 和 [`wit/case-studies/`](wit/case-studies/)——采用 **Creative Commons Attribution 4.0 International**（`CC-BY-4.0`）。
+- WIT framework 与供人阅读的内容——包括 README、[`wit/references/`](https://github.com/deltadbu/WIT-skill/tree/main/wit/references)、[`wit/tests/`](wit/tests/) 和 [`wit/case-studies/`](wit/case-studies/)——采用 **Creative Commons Attribution 4.0 International**（`CC-BY-4.0`）。
 
 具体适用范围与署名建议见 [LICENSE](LICENSE)。两个许可证的完整文本分别见 [LICENSE-APACHE-2.0](LICENSE-APACHE-2.0) 和 [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0)。

@@ -5,8 +5,8 @@
 This assessment uses:
 
 - Mankowitz, D. J. et al. *Faster sorting algorithms discovered using deep reinforcement learning*. Nature 618, 257–263 (2023). DOI: 10.1038/s41586-023-06004-9.
-- Current WIT Agent Skill: https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md
-- Current full WIT workflow: https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-Scientific-thinking-and-writing-skill.md
+- Current WIT Agent Skill: [SKILL.md](../SKILL.md)
+- Current full WIT workflow: [WIT-Scientific-thinking-and-writing-skill.md](../references/WIT-Scientific-thinking-and-writing-skill.md)
 
 AlphaDev predates WIT and is therefore useful as an external stress test for most of WIT. However, one recently added WIT rule—natural-language explanation followed by a minimal concrete walkthrough—was explicitly motivated by AlphaDev. AlphaDev therefore illustrates that rule but cannot independently validate it.
 

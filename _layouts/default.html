@@ -1,0 +1,70 @@
+{%- assign is_zh = false -%}
+{%- assign counterpart = '' -%}
+{%- if page.path contains '-cn.md' -%}
+  {%- assign is_zh = true -%}
+  {%- assign counterpart = page.path | replace: '-cn.md', '.md' -%}
+{%- else -%}
+  {%- assign counterpart = page.path | replace: '.md', '-cn.md' -%}
+{%- endif -%}
+{%- for pair in site.language_pairs -%}
+  {%- if page.path == pair.en -%}{%- assign counterpart = pair.zh -%}{%- endif -%}
+  {%- if page.path == pair.zh -%}{%- assign counterpart = pair.en -%}{%- assign is_zh = true -%}{%- endif -%}
+{%- endfor -%}
+{%- assign alternate = site.pages | where: 'path', counterpart | first -%}
+<!doctype html>
+<html lang="{% if is_zh %}zh-CN{% else %}en{% endif %}" data-theme="academic">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <script>
+    try {
+      var theme = localStorage.getItem('wit-theme');
+      if (['academic', 'book', 'manual'].includes(theme)) document.documentElement.dataset.theme = theme;
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+  <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">{% if is_zh %}跳至正文{% else %}Skip to content{% endif %}</a>
+  <header class="site-header">
+    <a class="brand" href="{{ '/' | relative_url }}">WIT</a>
+    <nav aria-label="{% if is_zh %}主导航{% else %}Main navigation{% endif %}">
+      <a href="{{ '/' | relative_url }}">{% if is_zh %}首页{% else %}Home{% endif %}</a>
+      {% if is_zh %}
+        <a href="{{ '/wit/references/WIT-科学思考及写作skill.html' | relative_url }}">工作流</a>
+      {% else %}
+        <a href="{{ '/wit/references/WIT-Scientific-thinking-and-writing-skill.html' | relative_url }}">Workflow</a>
+      {% endif %}
+    </nav>
+    <div class="preferences">
+      {% if alternate %}
+        <a class="language" href="{{ alternate.url | relative_url }}" lang="{% if is_zh %}en{% else %}zh-CN{% endif %}" hreflang="{% if is_zh %}en{% else %}zh-CN{% endif %}">{% if is_zh %}EN{% else %}中文{% endif %}</a>
+      {% elsif page.path == 'index.md' %}
+        <a class="language" href="{{ '/README-cn.html' | relative_url }}" lang="zh-CN">中文介绍</a>
+      {% elsif page.path == 'README-cn.md' %}
+        <a class="language" href="{{ '/' | relative_url }}" lang="en">English home</a>
+      {% endif %}
+      <label class="theme-control" hidden>
+        <span>{% if is_zh %}主题{% else %}Theme{% endif %}</span>
+        <select id="theme-select">
+          <option value="academic">{% if is_zh %}学术{% else %}Academic{% endif %}</option>
+          <option value="book">{% if is_zh %}书卷{% else %}Book{% endif %}</option>
+          <option value="manual">{% if is_zh %}手册{% else %}Manual{% endif %}</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <div class="reading-layout">
+    <aside class="contents" hidden>
+      <details open>
+        <summary>{% if is_zh %}本页目录{% else %}On this page{% endif %}</summary>
+        <nav id="page-contents" aria-label="{% if is_zh %}本页目录{% else %}On this page{% endif %}"></nav>
+      </details>
+    </aside>
+    <main id="main" tabindex="-1"><article>{{ content }}</article></main>
+  </div>
+  <footer class="site-footer">{{ site.title | escape }} <span>{{ site.description | escape }}</span></footer>
+</body>
+</html>
