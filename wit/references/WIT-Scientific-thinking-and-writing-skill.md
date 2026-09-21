@@ -78,7 +78,7 @@ WIT is designed to address several common difficulties in scientific research an
 
 WIT has two main ways of use:
 
-(1) **Agent Skill mode**: if the agent / IDE supports Agent Skills or can read skill files in a project, it is recommended to use [`SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md) as the entry point. The agent can then follow its rules to select the appropriate WIT mode, load the full workflow, and arrange appropriate **control transfer** between the researcher and the LLM.
+(1) **Agent Skill mode**: if the agent / IDE supports Agent Skills or can read skill files in a project, it is recommended to use [`SKILL.md`](../SKILL.md) as the entry point. The agent can then follow its rules to select the appropriate WIT mode, load the full workflow, and arrange appropriate **control transfer** between the researcher and the LLM.
 
 (2) **Directly load the WIT workflow**: if the current environment does not support skill discovery, or if WIT is only needed in a single conversation, provide the full WIT workflow file directly to the AI and explicitly ask it to work according to WIT.
 
@@ -86,7 +86,7 @@ The relationship between the two is:
 
 > **The full WIT file defines the method; `SKILL.md` defines how an agent invokes and executes that method.**
 
-In other words, the full WIT file serves as a **reference / specification**, whereas [`SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md) serves as an **agent-facing executable collaboration protocol**. It specifies when WIT should be used, which mode should be invoked, what supporting material should be loaded, which steps may be automated by the AI, which key judgments should keep the researcher actively involved, and when the process should stop.
+In other words, the full WIT file serves as a **reference / specification**, whereas [`SKILL.md`](../SKILL.md) serves as an **agent-facing executable collaboration protocol**. It specifies when WIT should be used, which mode should be invoked, what supporting material should be loaded, which steps may be automated by the AI, which key judgments should keep the researcher actively involved, and when the process should stop.
 
 ### 3.1 File Entry Points and Downloads
 
@@ -96,9 +96,9 @@ WIT GitHub repository:
 
 Main files:
 
-- [`SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md) — agent execution entry point and human–LLM collaboration protocol; [direct download](https://github.com/deltadbu/WIT-skill/raw/refs/heads/main/wit/SKILL.md)
-- [`WIT-Scientific-thinking-and-writing-skill.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-Scientific-thinking-and-writing-skill.md) — English full workflow; [direct download](https://github.com/deltadbu/WIT-skill/raw/refs/heads/main/wit/references/WIT-Scientific-thinking-and-writing-skill.md)
-- [`WIT-科学思考及写作skill.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-%E7%A7%91%E5%AD%A6%E6%80%9D%E8%80%83%E5%8F%8A%E5%86%99%E4%BD%9Cskill.md) — Chinese full workflow; [direct download](https://github.com/deltadbu/WIT-skill/raw/refs/heads/main/wit/references/WIT-%E7%A7%91%E5%AD%A6%E6%80%9D%E8%80%83%E5%8F%8A%E5%86%99%E4%BD%9Cskill.md)
+- [`SKILL.md`](../SKILL.md) — agent execution entry point and human–LLM collaboration protocol; [direct download](https://github.com/deltadbu/WIT-skill/raw/refs/heads/main/wit/SKILL.md)
+- [`WIT-Scientific-thinking-and-writing-skill.md`](WIT-Scientific-thinking-and-writing-skill.md) — English full workflow; [direct download](https://github.com/deltadbu/WIT-skill/raw/refs/heads/main/wit/references/WIT-Scientific-thinking-and-writing-skill.md)
+- [`WIT-科学思考及写作skill.md`](WIT-科学思考及写作skill.md) — Chinese full workflow; [direct download](https://github.com/deltadbu/WIT-skill/raw/refs/heads/main/wit/references/WIT-%E7%A7%91%E5%AD%A6%E6%80%9D%E8%80%83%E5%8F%8A%E5%86%99%E4%BD%9Cskill.md)
 
 For long-term use, it is recommended to clone the entire repository rather than downloading only one file:
 
@@ -106,29 +106,29 @@ For long-term use, it is recommended to clone the entire repository rather than 
 git clone https://github.com/deltadbu/WIT-skill.git
 ```
 
-The installable skill package is the repository's [`wit/`](https://github.com/deltadbu/WIT-skill/tree/main/wit) directory. Keeping that directory intact preserves the relative paths among `SKILL.md`, `references/`, `tests/`, and `case-studies/`.
+The installable skill package is the repository's [`wit/`](../) directory. Keeping that directory intact preserves the relative paths among `SKILL.md`, `references/`, `tests/`, and `case-studies/`.
 
 ---
 
 ### 3.2 Using `SKILL.md`: Let an Agent Coordinate WIT Automatically
 
-If the agent supports Agent Skills, place or install the repository's [`wit/`](https://github.com/deltadbu/WIT-skill/tree/main/wit) directory—the installable WIT skill package—in a skill directory that the agent can discover. Different platforms may use different skill locations or installation mechanisms; WIT does not assume one fixed directory.
+If the agent supports Agent Skills, place or install the repository's [`wit/`](../) directory—the installable WIT skill package—in a skill directory that the agent can discover. Different platforms may use different skill locations or installation mechanisms; WIT does not assume one fixed directory.
 
-Once the agent discovers [`SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md), it first reads its metadata and execution rules. It should treat `SKILL.md` as a **dispatcher + workflow controller + collaboration protocol**, mainly responsible for:
+Once the agent discovers [`SKILL.md`](../SKILL.md), it first reads its metadata and execution rules. It should treat `SKILL.md` as a **dispatcher + workflow controller + collaboration protocol**, mainly responsible for:
 
 (1) deciding whether the current task should use WIT;
 
 (2) identifying the appropriate mode, such as **Open a question, Advance from a finding, Choose the next experiment, Review Results, Review Discussion, Stress-test a study, or Deadline Mode**;
 
-(3) loading either the full [`WIT-Scientific-thinking-and-writing-skill.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-Scientific-thinking-and-writing-skill.md) or [`WIT-科学思考及写作skill.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-%E7%A7%91%E5%AD%A6%E6%80%9D%E8%80%83%E5%8F%8A%E5%86%99%E4%BD%9Cskill.md), depending on the language and task;
+(3) loading either the full [`WIT-Scientific-thinking-and-writing-skill.md`](WIT-Scientific-thinking-and-writing-skill.md) or [`WIT-科学思考及写作skill.md`](WIT-科学思考及写作skill.md), depending on the language and task;
 
-(4) loading supporting material from `tests/` or `case-studies/` inside the skill package (repository paths: [`wit/tests/`](https://github.com/deltadbu/WIT-skill/tree/main/wit/tests) and [`wit/case-studies/`](https://github.com/deltadbu/WIT-skill/tree/main/wit/case-studies)) only when needed, rather than placing all material into context by default;
+(4) loading supporting material from `tests/` or `case-studies/` inside the skill package (repository paths: [`wit/tests/`](../tests/) and [`wit/case-studies/`](../case-studies/)) only when needed, rather than placing all material into context by default;
 
 (5) executing WIT's REWRITE decision loop, reasoning invariants, and stop rule;
 
 (6) arranging **control transfer** in human–LLM collaboration: low-learning-value labor may be automated by the AI, while high-learning-value judgment nodes should keep the researcher substantively involved.
 
-Therefore, when using [`SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md), the user does not need to manually specify the entire WIT procedure at every step. For example, one can simply say:
+Therefore, when using [`SKILL.md`](../SKILL.md), the user does not need to manually specify the entire WIT procedure at every step. For example, one can simply say:
 
 > Use WIT to analyze this finding and decide the next experiment.
 
@@ -136,11 +136,11 @@ or:
 
 > Use WIT to review the Results and Discussion of this paper.
 
-If the agent has correctly discovered and loaded WIT, it should use [`SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md) to select the appropriate mode automatically, rather than asking the user to restate the full WIT workflow.
+If the agent has correctly discovered and loaded WIT, it should use [`SKILL.md`](../SKILL.md) to select the appropriate mode automatically, rather than asking the user to restate the full WIT workflow.
 
 If the current tool **cannot automatically discover skills** but can read files in the repository, the user can explicitly instruct:
 
-> Read [SKILL.md](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md) first, then use WIT according to its routing, human–LLM collaboration rules, and stop rule. When the full English workflow is needed, read [WIT-Scientific-thinking-and-writing-skill.md](https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-Scientific-thinking-and-writing-skill.md).
+> Read [SKILL.md](../SKILL.md) first, then use WIT according to its routing, human–LLM collaboration rules, and stop rule. When the full English workflow is needed, read [WIT-Scientific-thinking-and-writing-skill.md](WIT-Scientific-thinking-and-writing-skill.md).
 
 Core principle:
 
@@ -150,11 +150,11 @@ Core principle:
 
 ### 3.3 When Skill Discovery Is Not Supported: Load the Full WIT Workflow Directly
 
-If WIT is being used in an ordinary ChatGPT conversation, or the current agent does not support automatic discovery of [`SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md), the simplest approach is to load the full WIT workflow directly.
+If WIT is being used in an ordinary ChatGPT conversation, or the current agent does not support automatic discovery of [`SKILL.md`](../SKILL.md), the simplest approach is to load the full WIT workflow directly.
 
 #### In ChatGPT
 
-Download and upload the English [`WIT-Scientific-thinking-and-writing-skill.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-Scientific-thinking-and-writing-skill.md), or the Chinese [`WIT-科学思考及写作skill.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-%E7%A7%91%E5%AD%A6%E6%80%9D%E8%80%83%E5%8F%8A%E5%86%99%E4%BD%9Cskill.md), and then say:
+Download and upload the English [`WIT-Scientific-thinking-and-writing-skill.md`](WIT-Scientific-thinking-and-writing-skill.md), or the Chinese [`WIT-科学思考及写作skill.md`](WIT-科学思考及写作skill.md), and then say:
 
 > Please read this WIT workflow and follow it throughout this conversation.
 
@@ -166,13 +166,13 @@ or:
 
 > Use WIT to review the Results and Discussion of this paper.
 
-If you also want agent-level routing, human–LLM control transfer, and the stop rule, provide [`SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md) together with the full workflow.
+If you also want agent-level routing, human–LLM control transfer, and the stop rule, provide [`SKILL.md`](../SKILL.md) together with the full workflow.
 
 If you start a new conversation and these files are not automatically available, provide the files or GitHub links again.
 
 #### In ChatGPT Work / Project Spaces
 
-Place [`SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md) together with the English [`WIT-Scientific-thinking-and-writing-skill.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-Scientific-thinking-and-writing-skill.md) or Chinese [`WIT-科学思考及写作skill.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-%E7%A7%91%E5%AD%A6%E6%80%9D%E8%80%83%E5%8F%8A%E5%86%99%E4%BD%9Cskill.md) in the relevant project materials, then say at the beginning of the project:
+Place [`SKILL.md`](../SKILL.md) together with the English [`WIT-Scientific-thinking-and-writing-skill.md`](WIT-Scientific-thinking-and-writing-skill.md) or Chinese [`WIT-科学思考及写作skill.md`](WIT-科学思考及写作skill.md) in the relevant project materials, then say at the beginning of the project:
 
 > Please read WIT's `SKILL.md` and full workflow, and use them as the human–LLM collaborative rules for scientific thinking and writing in this project.
 
@@ -180,9 +180,9 @@ This allows WIT to be used together with manuscript drafts, experimental results
 
 #### In VSCode / Codex / Copilot
 
-It is recommended to clone the [WIT GitHub repository](https://github.com/deltadbu/WIT-skill). If the tool supports Agent Skills, make the repository's [`wit/`](https://github.com/deltadbu/WIT-skill/tree/main/wit) directory discoverable as the skill package and let it execute WIT from [`wit/SKILL.md`](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md). If it does not, explicitly instruct it in the chat or project instructions:
+It is recommended to clone the [WIT GitHub repository](https://github.com/deltadbu/WIT-skill). If the tool supports Agent Skills, make the repository's [`wit/`](../) directory discoverable as the skill package and let it execute WIT from [`wit/SKILL.md`](../SKILL.md). If it does not, explicitly instruct it in the chat or project instructions:
 
-> Read [SKILL.md](https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md) first, then load the appropriate full WIT workflow and follow its routing, reasoning, human–LLM collaboration, and stop rules.
+> Read [SKILL.md](../SKILL.md) first, then load the appropriate full WIT workflow and follow its routing, reasoning, human–LLM collaboration, and stop rules.
 
 Core principle:
 

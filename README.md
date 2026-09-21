@@ -67,6 +67,6 @@ For details, see [WIT-Scientific-thinking-and-writing-skill.md](wit/references/W
 WIT uses **split licensing**:
 
 - The executable Agent Skill and software components — especially [`wit/SKILL.md`](wit/SKILL.md) and executable code/scripts — are licensed under the **Apache License 2.0** (`Apache-2.0`).
-- The WIT framework and human-readable content — including the README files, [`wit/references/`](wit/references/), [`wit/tests/`](wit/tests/), and [`wit/case-studies/`](wit/case-studies/) — are licensed under the **Creative Commons Attribution 4.0 International License** (`CC-BY-4.0`).
+- The WIT framework and human-readable content — including the README files, [`wit/references/`](https://github.com/deltadbu/WIT-skill/tree/main/wit/references), [`wit/tests/`](wit/tests/), and [`wit/case-studies/`](wit/case-studies/) — are licensed under the **Creative Commons Attribution 4.0 International License** (`CC-BY-4.0`).
 
 See [LICENSE](LICENSE) for the exact scope and attribution guidance. Full license texts are provided in [LICENSE-APACHE-2.0](LICENSE-APACHE-2.0) and [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0).

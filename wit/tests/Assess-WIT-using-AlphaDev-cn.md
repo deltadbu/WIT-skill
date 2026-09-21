@@ -5,8 +5,8 @@
 本文使用：
 
 - Mankowitz, D. J. et al. *Faster sorting algorithms discovered using deep reinforcement learning*. Nature 618, 257–263 (2023). DOI: 10.1038/s41586-023-06004-9。
-- 当前 WIT Agent Skill：https://github.com/deltadbu/WIT-skill/blob/main/wit/SKILL.md
-- 当前完整 WIT workflow：https://github.com/deltadbu/WIT-skill/blob/main/wit/references/WIT-Scientific-thinking-and-writing-skill.md
+- 当前 WIT Agent Skill：[SKILL.md](../SKILL.md)
+- 当前完整 WIT workflow：[WIT-Scientific-thinking-and-writing-skill.md](../references/WIT-Scientific-thinking-and-writing-skill.md)
 
 AlphaDev 发表早于 WIT，因此对于 WIT 的大部分原则，它可以作为 external stress test。但是，WIT 最近新增的“先用自然语言解释 basic idea，再用最小 concrete example 让 reader mentally execute the method”这一条，本身就是受 AlphaDev 启发后加入的。因此 AlphaDev 可以**说明**这条规则，但不能作为这条规则的独立验证。
 
